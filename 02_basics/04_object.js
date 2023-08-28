@@ -55,4 +55,30 @@ const user = [
 // console.log(Object.values(user_Data));      // [ 'a1s2', 'Shubham', false ]
 // console.log(Object.entries(user_Data));     // [ [ 'id', 'a1s2' ], [ 'name', 'Shubham' ], [ 'loginStatus', false ] ]
 
-console.log(user_Data.hasOwnProperty('loginStatus'));     //true
+// console.log(user_Data.hasOwnProperty('loginStatus'));     //true
+
+const anotherObject = {
+    name : "Shubham",
+    phone : "9632587412",
+    email : "shubham@google.com"
+}
+// console.log(anotherObject.email);
+const {email : mail} = anotherObject
+// console.log(email);
+// console.log(mail);
+
+
+// data from api
+
+
+// {
+//     "userId" : "Shubham1",
+//     "password" : "Shuabham@123",
+//     "loginStaus" : false
+// }
+
+[
+    {},
+    {},
+    {}
+]
