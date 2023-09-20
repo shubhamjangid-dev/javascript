@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM | Shubham</title>
+</head>
+<body style="background-color: #212121;color :#fff;">
+    <ul class="brands">
+        <li>Samsung</li>
+    </ul>
+</body>
+<script>
+    function addBrand(name)
+    {
+        const li =document.createElement('li')
+        li.innerText=`${name}`
+        document.querySelector('.brands').appendChild(li)
+    }
+    addBrand("jadu")
+    addBrand("sabe")
+    addBrand("kela")
+    // Optimised way
+    function addOptiBrands(name)
+    {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(name));
+        document.querySelector('.brands').appendChild(li)
+    }
+    addOptiBrands("Shubham ji")
+    addOptiBrands("Jangir ji")
+
+    // Edit 
+    const Edit = document.querySelector('li:nth-child(3)')
+    // console.log(Edit);
+    // Edit.innerText = "Apple"     // not optimesed but works
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode('Apple'))
+    Edit.replaceWith(li)
+
+    // Edit
+    const change = document.querySelector('li:first-child')
+    // change.textContent ="Galaxy S10 "
+    change.outerHTML ="<li>Galaxy S20 Ultra</li>"
+
+    // remove
+    const last = document.querySelector('li:last-child')
+    last.remove()
+</script>
+</html>
