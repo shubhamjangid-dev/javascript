@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="130px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="130px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="130px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="130px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="130px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function (){
+    //     alert("You Clicked On Owl")
+    //     // onclick is not a good way because sometime it doesnt works so we use addEventListener
+    // }
+    // document.getElementById('photoshop').addEventListener('click',function(){
+    //     alert("You Clicked On photoshop")
+    // })
+
+    // both work same as addEventListener
+    // 1)attachEvent()   in internet exploror
+    // 2)jQuery - on
+    // document.getElementById('photoshop').addEventListener('click',function(e){
+    //     console.log(e);
+    //     // o/p => PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+    // },false) // 3rd perameter is defaul false
+
+    // using object 'e' we can get many info like
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // 3rd parameter
+    // if false  = event Bubbeling
+    // if false  = Capturing Mode
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("Clicked on ul");
+    // },false) 
+
+    // document.getElementById('photoshop').addEventListener('click',function(e){
+    //     console.log("Clicked on photoshop");
+    //     // e.stopPropagation();  // not goes to parent   o/ p only Clicked on photoshop
+    // },false) 
+
+    // Output = > bubble means increases size then firstly chlid then parent
+    // Clicked on photoshop
+    // Clicked on ul
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("Clicked on ul");
+    // },true) 
+
+    // document.getElementById('photoshop').addEventListener('click',function(e){
+    //     console.log("Clicked on photoshop");
+    // },true) 
+
+    // Output = > parent to child
+    // Clicked on ul
+    // Clicked on photoshop
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();  // google link doesnt works
+    //     console.log("google clicked")
+    // },false)
+
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log(e.target);
+    //     e.target.parentNode.remove();
+    // }) // here if we click li then whole ul deleted
+    
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log(e.target);
+    //     if(e.target.tagName == "IMG")
+    //     {
+    //         let removeIt = e.target.parentNode;
+    //         removeIt.remove();
+    //         // removeIt.parentNode.removeChild(removeIt);
+    //     }
+    // })
+</script>
+</html>

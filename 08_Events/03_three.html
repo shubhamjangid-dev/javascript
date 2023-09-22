@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai Aur Code</h1>
+    <div id="circle">0</div><br>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<style>
+    button{
+        background-color: #4d94ff;
+        color: white;
+        border: none;
+        padding: 10px 20px 10px 20px;
+        border-radius: 20px;
+        font-size: larger;
+    }
+    h1{
+        font-family:Arial, Helvetica, sans-serif;
+        color: #4d94ff;
+    }
+    #circle{
+        background-color: #4d94ff;
+        width : 120px;
+        margin-left: 20px;
+        border-radius: 75px;
+        padding: 40px 15px 40px 15px;
+        color: white;
+        font-size: 60px;
+        text-align: center;
+    }
+</style>
+<script>
+    // const name = function(){
+    //     console.log("shubham");
+    // }
+    // setInterval(name,1000)
+
+    let time
+    
+    const start =document.getElementById('start');
+    const stop =document.getElementById('stop');
+    const circle =document.getElementById('circle');
+    start.addEventListener('click',function(){
+        let initialTime = Date.now() 
+        time = setInterval(function(){
+            let sec = ((Date.now()-initialTime)/1000).toFixed(0)
+            circle.innerText=sec
+        },1000);
+    })
+    stop.addEventListener('click',function(){
+        clearInterval(time);
+    })
+</script>
+</html>
