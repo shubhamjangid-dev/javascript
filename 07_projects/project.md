@@ -130,3 +130,60 @@ function printArr(){
 }
 
 ```
+
+## Project 5
+```javascript
+window.addEventListener('keydown', function (e) {
+  // console.log(e.key);
+  // console.log(e.keyCode);
+  // console.log(e.code);
+  const key = document.getElementById('insert');
+  key.innerHTML = `
+  <div class="key">
+  <table>
+    <tr>
+      <th>Key</th>
+      <th>KeyCode</th>
+      <th>Code</th>
+    </tr>
+    <tr>
+      <td>${e.key==" "? "space":e.key}</td>
+      <td>${e.keyCode}</td>
+      <td>${e.code}</td>
+    </tr>
+  </table>
+  </div>
+`;
+});
+
+```
+
+## Project 6
+```javascript
+const randomColor = function(){
+  const hex = "0123456789ABCDEF"
+  let color ="#";
+  for(let i= 0; i < 6; i++)
+  {
+    color+=hex[Math.floor(Math.random()*16)]
+  }
+  return color
+}
+// console.log(randomColor())
+let changeColor
+const start = document.getElementById('start')
+const stop = document.getElementById('stop')
+const body = document.querySelector('body')
+start.addEventListener('click',function(){
+  if(!changeColor)
+  {
+    changeColor = setInterval(function(){
+    body.style.backgroundColor = randomColor()
+    },1000)
+  }
+})
+stop.addEventListener('click',function(){
+  clearInterval(changeColor)
+  changeColor=null
+})
+```
