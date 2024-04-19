@@ -7,7 +7,66 @@
 </head>
 <body>
     <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">read me</a>
+    <br>
+    <div class = "card">
+        <div class ="image"></div>
+        <div class ="name"></div>
+        <div class ="followers"></div>
+    </div>
 </body>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    .card{
+        height: 600px;
+        width: 400px;
+        border-radius: 10px;
+    }
+    .image{
+        height: 400px;
+        width: 400px;
+        border-radius: 200px;
+    }
+    .name{
+        text-align: center;
+    }
+    .followers{
+        text-align: center;
+    }
+</style>
 <script>
+    // assignment
+    const img = document.querySelector('.image');
+    const name = document.querySelector('.name');
+    const followers = document.querySelector('.followers');
+    // class
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest(); // ctor called
+    xhr.open('GET',requestUrl); // open hui h send bhi krni h
+    // ab hr state print kra ne ke liye
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        // jb state 4 hoti h  to responce bhi aata h
+        if(xhr.readyState === 4)
+        {
+            console.log(this.responseText); // is saara data aata h
+            const dataS = this.responseText;
+            console.log(typeof dataS); // string h
+            // change to object
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data); // object h
+
+            // follower nikalte h ab
+            console.log(data.followers);
+            console.log(data.login);
+            img.style.backgroundImage = `url(${data.avatar_url})`;
+            img.style.backgroundSize = "cover";
+            name.innerHTML = `<h1>${data.name}</h1>`;
+            followers.innerHTML = `<h2>${data.followers}</h2>`;
+        }
+    }
+    xhr.send();
 </script>
 </html>
